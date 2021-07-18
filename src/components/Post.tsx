@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-//import { Accordion, Card } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion';
-//import Card from 'react-bootstrap/Card';
 
 interface PostProps {
   post: any;
