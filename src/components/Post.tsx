@@ -12,9 +12,10 @@ const Post = ({ post }: PostProps) => {
         <Accordion.Toggle as={Card.Header} eventKey="0">
           {post.title}
         </Accordion.Toggle>
-
         <Accordion.Collapse eventKey="0">
-          <Card.Body>{post.content}</Card.Body>
+          <Card.Body
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          ></Card.Body>
         </Accordion.Collapse>
       </Card>
     </Accordion>
