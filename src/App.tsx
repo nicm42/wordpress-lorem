@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Post from './components/Post';
 
 const App = () => {
   useEffect(() => {
@@ -9,7 +11,8 @@ const App = () => {
         const request = await fetch(link);
         if (request.ok) {
           const data = await request.json();
-          console.log(data);
+          console.log(data.posts[0].title);
+          console.log(data.posts[0].content);
         }
       } catch (error) {
         console.log(error);
@@ -18,7 +21,11 @@ const App = () => {
     fetchData();
   }, []);
 
-  return <></>;
+  return (
+    <>
+      <Post />
+    </>
+  );
 };
 
 export default App;

@@ -9,6 +9,7 @@
     "@types/jest": "^26.0.24",
     "@types/node": "^16.3.3",
     "@types/react": "^17.0.14",
+    "@types/react-bootstrap": "^0.32.26",
     "@types/react-dom": "^17.0.9",
     "bootstrap": "^5.0.2",
     "cypress": "^7.7.0",
