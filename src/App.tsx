@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Spinner from 'react-bootstrap/Spinner';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 import Post from './components/Post';
 
 const App = () => {
-  const [posts, setPosts] = useState<any[]>([]);
-  const [status, setStatus] = useState<string>('loading');
+  const [posts, setPosts] = useState([]);
+  const [status, setStatus] = useState('loading');
+  const [show, setShow] = useState(false); // For the Toast hiding
 
   const fetchData = async () => {
     try {
@@ -16,6 +19,7 @@ const App = () => {
         const data = await request.json();
         setPosts(data.posts);
         setStatus('loaded');
+        setShow(true);
         console.log(data.posts);
       }
     } catch (error) {
@@ -42,6 +46,29 @@ const App = () => {
       {posts.map((post: any[]) => (
         <Post post={post} key={post.ID} />
       ))}
+      {status === 'loaded' ? (
+        <ToastContainer position="top-end">
+          <Toast
+            bg="success"
+            onClose={() => setShow(false)}
+            show={show}
+            delay={3000}
+            autohide
+          >
+            <Toast.Header>
+              <img
+                src="holder.js/20x20?text=%20"
+                className="rounded me-2"
+                alt=""
+              />
+              <strong className="me-auto">Success</strong>
+            </Toast.Header>
+            <Toast.Body>Posts loaded!</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      ) : (
+        ''
+      )}
     </main>
   );
 };
