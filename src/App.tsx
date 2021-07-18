@@ -14,8 +14,6 @@ const App = () => {
         const data = await request.json();
         setPosts(data.posts);
         console.log(data.posts);
-        //console.log(data.posts[0].title);
-        //console.log(data.posts[0].content);
       }
     } catch (error) {
       console.log(error);

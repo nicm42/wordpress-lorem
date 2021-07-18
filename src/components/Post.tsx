@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { Accordion, Card } from 'react-bootstrap';
+//import { Accordion, Card } from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion';
+//import Card from 'react-bootstrap/Card';
 
 interface PostProps {
   post: any;
@@ -8,16 +10,12 @@ interface PostProps {
 const Post = ({ post }: PostProps) => {
   return (
     <Accordion>
-      <Card>
-        <Accordion.Toggle as={Card.Header} eventKey="0">
-          {post.title}
-        </Accordion.Toggle>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          ></Card.Body>
-        </Accordion.Collapse>
-      </Card>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>{post.title}</Accordion.Header>
+        <Accordion.Body
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        ></Accordion.Body>
+      </Accordion.Item>
     </Accordion>
   );
 };
