@@ -27,11 +27,12 @@ const App = () => {
   }, []);
 
   return (
-    <>
+    <main>
+      <h1>Alternative Ipsum Posts</h1>
       {posts.map((post: any[]) => (
         <Post post={post} key={post.ID} />
       ))}
-    </>
+    </main>
   );
 };
 
