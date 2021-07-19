@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Spinner from 'react-bootstrap/Spinner';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './components/Post';
 
 const App = () => {
@@ -11,10 +11,10 @@ const App = () => {
   const [show, setShow] = useState(false); // For the Toast hiding
 
   const fetchData = async () => {
-    /* const link =
-        'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true'; */
+    const link =
+      'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true';
     // Uncomment below to test errors
-    const link = 'http://httpstat.us/404';
+    //const link = 'http://httpstat.us/404';
     try {
       const response = await fetch(link);
 
@@ -35,15 +35,17 @@ const App = () => {
 
   return (
     <main>
-      <h1>Alternative Ipsum Posts</h1>
+      <h1 className="text-center">Alternative Ipsum Posts</h1>
       {status === 'loading' ? (
-        <Spinner animation="border" role="status" variant="primary">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="text-center">
+          <Spinner animation="border" role="status" variant="primary">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         ''
       )}
-      <p className=".text-danger">
+      <p className="text-danger text-center">
         {status === 'error' ? "Couldn't fetch posts" : ''}
       </p>
 
