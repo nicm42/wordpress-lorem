@@ -11,20 +11,21 @@ const App = () => {
   const [show, setShow] = useState(false); // For the Toast hiding
 
   const fetchData = async () => {
+    /* const link =
+        'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true'; */
+    // Uncomment below to test errors
+    const link = 'http://httpstat.us/404';
     try {
-      const link =
-        'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true';
-      const request = await fetch(link);
-      if (request.ok) {
-        const data = await request.json();
-        setPosts(data.posts);
-        setStatus('loaded');
-        setShow(true);
-        console.log(data.posts);
-      }
+      const response = await fetch(link);
+
+      const data = await response.json();
+      setPosts(data.posts);
+      setStatus('loaded');
+      setShow(true);
+      console.log(data.posts);
     } catch (error) {
       console.log(error);
-      setStatus(error);
+      setStatus('error');
     }
   };
 
@@ -42,7 +43,10 @@ const App = () => {
       ) : (
         ''
       )}
-      {status === 'error' ? { status } : ''}
+      <p className=".text-danger">
+        {status === 'error' ? "Couldn't fetch posts" : ''}
+      </p>
+
       {posts.map((post: any[]) => (
         <Post post={post} key={post.ID} />
       ))}
