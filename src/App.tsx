@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import Spinner from 'react-bootstrap/Spinner';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './components/Post';
+import Loading from './components/Loading';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -36,15 +36,7 @@ const App = () => {
   return (
     <main>
       <h1 className="text-center">Alternative Ipsum Posts</h1>
-      {status === 'loading' ? (
-        <div className="text-center">
-          <Spinner animation="border" role="status" variant="primary">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      ) : (
-        ''
-      )}
+      {status === 'loading' ? <Loading /> : ''}
       <p className="text-danger text-center">
         {status === 'error' ? "Couldn't fetch posts" : ''}
       </p>
