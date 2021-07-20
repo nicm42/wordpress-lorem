@@ -14,9 +14,6 @@ interface IPhoto {
   userLink: string;
 }
 
-//Photo by <a href="https://unsplash.com/@anniespratt?utm_source=your_app_name&utm_medium=referral">Annie Spratt</a> on <a href="https://unsplash.com/?utm_source=your_app_name&utm_medium=referral">Unsplash</a>
-//<Accordion.Body dangerouslySetInnerHTM={{ __html: post.content}}>
-
 const Post = ({ post }: IPostProps) => {
   const [photo, setPhoto] = useState<IPhoto>({
     link: '',
@@ -30,7 +27,7 @@ const Post = ({ post }: IPostProps) => {
     const data = await response.json();
     console.log(data[0]); */
     const data = dummyImage;
-    const link = data[0].urls.small;
+    const link = data[0].urls.thumb;
     const alt = data[0].alt_description;
     const userName = data[0].user.name;
     const userLink =
@@ -54,15 +51,13 @@ const Post = ({ post }: IPostProps) => {
           <div className="text-center">
             <img className="img-fluid" src={photo.link} alt={photo.alt} />
             <p className="small">
-              Photo by{' '}
-              <a href={photo.userLink}>
-                {photo.userName} on
-                <a href="https://unsplash.com/?utm_source=wordpress_lorem&utm_medium=referral">
-                  Unsplash
-                </a>
+              Photo by <a href={photo.userLink}>{photo.userName}</a> on{' '}
+              <a href="https://unsplash.com/?utm_source=wordpress_lorem&utm_medium=referral">
+                Unsplash
               </a>
             </p>
           </div>
+          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
