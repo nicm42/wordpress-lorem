@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Accordion from 'react-bootstrap/Accordion';
+import Image from './Image';
 import dummyImage from '../dummy-image.json'; // uncomment to use dummy image json rather than querying API
 
 interface IPostProps {
@@ -15,6 +16,7 @@ interface IPhoto {
 }
 
 const Post = ({ post }: IPostProps) => {
+  const [status, setStatus] = useState('');
   const [photo, setPhoto] = useState<IPhoto>({
     link: '',
     alt: '',
@@ -23,18 +25,25 @@ const Post = ({ post }: IPostProps) => {
   });
 
   const fetchCake = async () => {
-    /* const response = await fetch('/cake');
+    setStatus('loading');
+    try {
+      /* const response = await fetch('/cake');
     const data = await response.json();
     console.log(data[0]); */
-    const data = dummyImage;
-    const link = data[0].urls.thumb;
-    const alt = data[0].alt_description;
-    const userName = data[0].user.name;
-    const userLink =
-      data[0].user.links.html +
-      '?utm_source=wordpress_lorem&utm_medium=referral';
-    console.log(data[0]);
-    setPhoto({ link, alt, userName, userLink });
+      const data = dummyImage;
+      const link = data[0].urls.thumb;
+      const alt = data[0].alt_description;
+      const userName = data[0].user.name;
+      const userLink =
+        data[0].user.links.html +
+        '?utm_source=wordpress_lorem&utm_medium=referral';
+      console.log(data[0]);
+      setStatus('loaded');
+      setPhoto({ link, alt, userName, userLink });
+    } catch (error) {
+      console.log(error);
+      setStatus('error');
+    }
   };
 
   useEffect(() => {
@@ -48,15 +57,7 @@ const Post = ({ post }: IPostProps) => {
       <Accordion.Item eventKey="0">
         <Accordion.Header>{post.title}</Accordion.Header>
         <Accordion.Body>
-          <div className="text-center">
-            <img className="img-fluid" src={photo.link} alt={photo.alt} />
-            <p className="small">
-              Photo by <a href={photo.userLink}>{photo.userName}</a> on{' '}
-              <a href="https://unsplash.com/?utm_source=wordpress_lorem&utm_medium=referral">
-                Unsplash
-              </a>
-            </p>
-          </div>
+          {status === 'loaded' ? <Image photo={photo} /> : ''}
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </Accordion.Body>
       </Accordion.Item>
