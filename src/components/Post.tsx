@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Accordion from 'react-bootstrap/Accordion';
+import Spinner from 'react-bootstrap/Spinner';
 import Image from './Image';
 import dummyImage from '../dummy-image.json'; // uncomment to use dummy image json rather than querying API
 
@@ -57,6 +58,15 @@ const Post = ({ post }: IPostProps) => {
       <Accordion.Item eventKey="0">
         <Accordion.Header>{post.title}</Accordion.Header>
         <Accordion.Body>
+          {status === 'loading' ? (
+            <div className="text-center">
+              <Spinner animation="border" role="status" variant="primary">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
+          ) : (
+            ''
+          )}
           {status === 'loaded' ? <Image photo={photo} /> : ''}
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </Accordion.Body>
