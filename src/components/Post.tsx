@@ -41,7 +41,7 @@ const Post = ({ post }: IPostProps) => {
     if (post.title === 'Cupcake Ipsum') {
       fetchCake();
     }
-  }, []);
+  }, [post.title]);
 
   return (
     <Accordion>
