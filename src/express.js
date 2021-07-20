@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8000;
 const fetch = require('node-fetch');
 
 app.listen(port, () => {
@@ -18,5 +18,5 @@ app.get('/cake', async (req, res) => {
     `${link}/photos/random?client_id=${key}&count=1&query=cake`
   );
   const photoResponse = await photo.json();
-  console.log(photoResponse);
+  res.send(photoResponse);
 });
