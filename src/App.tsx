@@ -34,8 +34,8 @@ const App = () => {
   }, []);
 
   return (
-    <main>
-      <h1 className="text-center">Alternative Ipsum Posts</h1>
+    <main className="p-3">
+      <h1 className="text-center pt-2 pb-2">Alternative Ipsum Posts</h1>
       {status === 'loading' ? <Loading /> : ''}
       <p className="text-danger text-center">
         {status === 'error' ? "Couldn't fetch posts" : ''}
