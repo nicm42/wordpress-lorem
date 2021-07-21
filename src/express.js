@@ -13,6 +13,30 @@ const link = 'https://api.unsplash.com';
 
 const key = process.env.REACT_APP_API_KEY;
 
+app.get('/knight', async (req, res) => {
+  const photo = await fetch(
+    `${link}/photos/random?client_id=${key}&count=1&query=knight`
+  );
+  const photoResponse = await photo.json();
+  res.send(photoResponse);
+});
+
+app.get('/space', async (req, res) => {
+  const photo = await fetch(
+    `${link}/photos/random?client_id=${key}&count=1&query=space`
+  );
+  const photoResponse = await photo.json();
+  res.send(photoResponse);
+});
+
+app.get('/cat', async (req, res) => {
+  const photo = await fetch(
+    `${link}/photos/random?client_id=${key}&count=1&query=cat`
+  );
+  const photoResponse = await photo.json();
+  res.send(photoResponse);
+});
+
 app.get('/cake', async (req, res) => {
   const photo = await fetch(
     `${link}/photos/random?client_id=${key}&count=1&query=cake`
