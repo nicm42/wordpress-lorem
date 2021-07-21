@@ -6,15 +6,15 @@ interface IPhotoProps {
 
 const Image = ({ photo }: IPhotoProps) => {
   return (
-    <div className="text-center">
-      <img className="img-fluid" src={photo.link} alt={photo.alt} />
-      <p className="small">
+    <figure className="figure text-center">
+      <img className="figure-img img-fluid" src={photo.link} alt={photo.alt} />
+      <figcaption className="figure-caption">
         Photo by <a href={photo.userLink}>{photo.userName}</a> on{' '}
         <a href="https://unsplash.com/?utm_source=wordpress_lorem&utm_medium=referral">
           Unsplash
         </a>
-      </p>
-    </div>
+      </figcaption>
+    </figure>
   );
 };
 
