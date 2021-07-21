@@ -38,7 +38,6 @@ const Post = ({ post }: IPostProps) => {
       const userLink =
         data[0].user.links.html +
         '?utm_source=wordpress_lorem&utm_medium=referral';
-      console.log(data[0]);
       setStatus('loaded');
       setPhoto({ link, alt, userName, userLink });
     } catch (error) {
@@ -67,7 +66,7 @@ const Post = ({ post }: IPostProps) => {
   }, [post.title]);
 
   return (
-    <Accordion className="p-1">
+    <Accordion className="p-1 container-sm">
       <Accordion.Item eventKey="0">
         <Accordion.Header>{post.title}</Accordion.Header>
         <Accordion.Body className="col-sm-9">
