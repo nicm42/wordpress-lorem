@@ -25,12 +25,12 @@ const Post = ({ post }: IPostProps) => {
     userLink: '',
   });
 
-  const fetchCake = async () => {
+  const fetchData = async (type: string) => {
     setStatus('loading');
     try {
-      /* const response = await fetch('/cake');
-    const data = await response.json();
-    console.log(data[0]); */
+      //const response = await fetch('/' + type);
+      //const data = await response.json();
+      //console.log(data[0]);
       const data = dummyImage;
       const link = data[0].urls.thumb;
       const alt = data[0].alt_description;
@@ -48,16 +48,29 @@ const Post = ({ post }: IPostProps) => {
   };
 
   useEffect(() => {
-    if (post.title === 'Cupcake Ipsum') {
-      fetchCake();
+    switch (post.title) {
+      case 'Monty Python and the Holy Grail Fillerama':
+        fetchData('knight');
+        break;
+      case 'Doctor Who Fillerama':
+        fetchData('space');
+        break;
+      case 'Cat Ipsum':
+        fetchData('cat');
+        break;
+      case 'Cupcake Ipsum':
+        fetchData('cake');
+        break;
+      default:
+        return;
     }
   }, [post.title]);
 
   return (
-    <Accordion>
+    <Accordion className="p-1">
       <Accordion.Item eventKey="0">
         <Accordion.Header>{post.title}</Accordion.Header>
-        <Accordion.Body>
+        <Accordion.Body className="col-sm-9">
           {status === 'loading' ? <Loading /> : ''}
           {status === 'loaded' ? <Image photo={photo} /> : ''}
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
