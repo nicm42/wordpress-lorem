@@ -2,11 +2,18 @@ import PropTypes from 'prop-types';
 
 interface IPhotoProps {
   photo: any;
+  index: number;
 }
 
-const Image = ({ photo }: IPhotoProps) => {
+const Image = ({ photo, index }: IPhotoProps) => {
+  // Alternate whether image is on the left or right
+  let position = 'float-md-end';
+  if (index % 2 !== 0) {
+    position = 'float-md-start';
+  }
+
   return (
-    <figure className="figure text-center float-md-end">
+    <figure className={`figure text-center ${position}`}>
       <img
         className="figure-img img-fluid"
         src={photo.link}

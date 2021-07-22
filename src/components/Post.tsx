@@ -7,6 +7,7 @@ import dummyImage from '../dummy-image.json'; // uncomment to use dummy image js
 
 interface IPostProps {
   post: any;
+  index: number;
 }
 
 interface IPhoto {
@@ -16,7 +17,7 @@ interface IPhoto {
   userLink: string;
 }
 
-const Post = ({ post }: IPostProps) => {
+const Post = ({ post, index }: IPostProps) => {
   const [status, setStatus] = useState('');
   const [photo, setPhoto] = useState<IPhoto>({
     link: '',
@@ -71,7 +72,7 @@ const Post = ({ post }: IPostProps) => {
         <Accordion.Header>{post.title}</Accordion.Header>
         <Accordion.Body className="col-sm-9">
           {status === 'loading' ? <Loading /> : ''}
-          {status === 'loaded' ? <Image photo={photo} /> : ''}
+          {status === 'loaded' ? <Image photo={photo} index={index} /> : ''}
           <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
         </Accordion.Body>
       </Accordion.Item>

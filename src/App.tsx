@@ -41,8 +41,8 @@ const App = () => {
         {status === 'error' ? "Couldn't fetch posts" : ''}
       </p>
 
-      {posts.map((post: any[]) => (
-        <Post post={post} key={post.ID} />
+      {posts.map((post: any[], index) => (
+        <Post post={post} key={post.ID} index={index} />
       ))}
       {status === 'loaded' ? (
         <ToastContainer position="top-end">
