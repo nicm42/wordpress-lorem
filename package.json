@@ -59,14 +59,6 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/index.tsx",
-      "!src/dummy-posts.json",
-      "!src/dummy-image.json"
-    ]
-  },
   "devDependencies": {
     "@cypress/instrument-cra": "^1.4.0",
     "nodemon": "^2.0.12"
