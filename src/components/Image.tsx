@@ -23,7 +23,7 @@ const Image = ({ photo, index }: IPhotoProps) => {
       <figcaption className="figure-caption">
         Photo by <a href={photo.userLink}>{photo.userName}</a> on{' '}
         <a
-          href="https://unsplash.com/?utm_source=wordpress_lorem&utm_medium=referral"
+          href="https://unsplash.com?utm_source=wordpress_lorem&utm_medium=referral"
           className="link-primary"
         >
           Unsplash
