@@ -6,12 +6,9 @@ const getPosts = async () => {
   // Uncomment below to test errors
   //const link = 'http://httpstat.us/404';
   try {
-    //const response = await fetch(link);
-    //console.log(response);
-    //const data = await response.json();
     const response = await axios.get(link);
-    console.log(response.data);
-    return response.data.posts;
+    console.log(response);
+    return response;
   } catch (error) {
     console.log(error);
     return 'error';

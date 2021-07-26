@@ -21,6 +21,9 @@ describe('Image API test', () => {
   jest.mock('axios');
   const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+  beforeEach(() => jest.resetAllMocks());
+  afterEach(cleanup);
+
   it('gets data from the API', async () => {
     mockedAxios.get.mockResolvedValueOnce(testImage);
     render(<BlogPost post={testPost} index={1} />);
@@ -37,5 +40,22 @@ describe('Image API test', () => {
     );
     loadingDiv = await waitFor(() => screen.queryByTestId('loading'));
     expect(loadingDiv).not.toBeInTheDocument();
+  });
+
+  it('gets an error from the API', async () => {
+    mockedAxios.get.mockResolvedValueOnce({
+      response: {
+        status: 400,
+        statusText: 'Bad API',
+      },
+      data: [{}],
+    });
+    render(<BlogPost post={testPost} index={1} />);
+    await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledTimes(1));
+    await waitFor(() =>
+      expect(mockedAxios.get).toHaveBeenCalledWith('/knight')
+    );
+    const image = await waitFor(() => screen.queryByRole('img'));
+    expect(image).not.toBeInTheDocument();
   });
 });
