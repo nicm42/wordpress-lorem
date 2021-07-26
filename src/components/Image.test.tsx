@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Image from './Image';
-import testImage from '../test-image.json';
+import testImage from '../test-image2.json';
 
 describe('Image test', () => {
   it('renders without crashing', () => {
