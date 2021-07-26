@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion';
 import Image from './Image';
 import Loading from './Loading';
@@ -29,10 +30,11 @@ const Post = ({ post, index }: IPostProps) => {
   const fetchData = async (type: string) => {
     setStatus('loading');
     try {
-      //const response = await fetch('/' + type);
-      //const data = await response.json();
-      //console.log(data[0]);
-      const data = dummyImage;
+      const response = await axios.get('/' + type);
+      console.log(response);
+      const data = await response.data;
+      console.log(data[0]);
+      //const data = dummyImage;
       const link = data[0].urls.thumb;
       const alt = data[0].alt_description;
       const userName = data[0].user.name;
