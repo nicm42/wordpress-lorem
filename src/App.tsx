@@ -37,7 +37,7 @@ const App = () => {
       if (data === 'error') {
         setStatus('error');
       } else {
-        setPosts(data.posts);
+        setPosts(data);
         setStatus('loaded');
         setShow(true);
       }

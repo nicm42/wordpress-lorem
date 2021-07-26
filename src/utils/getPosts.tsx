@@ -9,9 +9,9 @@ const getPosts = async () => {
     //const response = await fetch(link);
     //console.log(response);
     //const data = await response.json();
-    const data = await axios.get(link);
-    //console.log(data.posts);
-    return data;
+    const response = await axios.get(link);
+    console.log(response.data);
+    return response.data.posts;
   } catch (error) {
     console.log(error);
     return 'error';
