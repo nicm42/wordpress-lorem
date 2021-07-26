@@ -1,12 +1,15 @@
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import BlogPost from './Post';
-import testPost from '../test-post.json';
+import testPost1 from '../test-post1.json';
+import testPost2 from '../test-post2.json';
+import testPost3 from '../test-post3.json';
+import testPost4 from '../test-post4.json';
 import testImage from '../test-image.json';
 
 describe('Post test', () => {
   it('has the title and content', () => {
-    render(<BlogPost post={testPost} index={1} />);
+    render(<BlogPost post={testPost1} index={1} />);
     const Title = screen.getByText('Monty Python and the Holy Grail Fillerama');
     expect(Title).toBeInTheDocument();
     const Content = screen.getByText(
@@ -26,7 +29,7 @@ describe('Image API test', () => {
 
   it('gets data from the API', async () => {
     mockedAxios.get.mockResolvedValueOnce(testImage);
-    render(<BlogPost post={testPost} index={1} />);
+    render(<BlogPost post={testPost1} index={1} />);
     let loadingDiv = screen.queryByTestId('loading');
     expect(loadingDiv).toBeInTheDocument();
     await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledTimes(1));
@@ -42,6 +45,24 @@ describe('Image API test', () => {
     expect(loadingDiv).not.toBeInTheDocument();
   });
 
+  it('gets data from the API for post 2', async () => {
+    mockedAxios.get.mockResolvedValueOnce(testImage);
+    render(<BlogPost post={testPost2} index={1} />);
+    await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledWith('/space'));
+  });
+
+  it('gets data from the API for post 3', async () => {
+    mockedAxios.get.mockResolvedValueOnce(testImage);
+    render(<BlogPost post={testPost3} index={3} />);
+    await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledWith('/cat'));
+  });
+
+  it('gets data from the API for post 4', async () => {
+    mockedAxios.get.mockResolvedValueOnce(testImage);
+    render(<BlogPost post={testPost4} index={3} />);
+    await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledWith('/cake'));
+  });
+
   it('gets an error from the API', async () => {
     mockedAxios.get.mockResolvedValueOnce({
       response: {
@@ -50,7 +71,7 @@ describe('Image API test', () => {
       },
       data: [{}],
     });
-    render(<BlogPost post={testPost} index={1} />);
+    render(<BlogPost post={testPost1} index={1} />);
     await waitFor(() => expect(mockedAxios.get).toHaveBeenCalledTimes(1));
     await waitFor(() =>
       expect(mockedAxios.get).toHaveBeenCalledWith('/knight')
