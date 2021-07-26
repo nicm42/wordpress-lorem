@@ -1,4 +1,10 @@
-import { render, screen, cleanup, waitFor } from '@testing-library/react';
+import {
+  render,
+  screen,
+  cleanup,
+  waitFor,
+  fireEvent,
+} from '@testing-library/react';
 import axios from 'axios';
 import App from './App';
 import testPost from './dummy-posts2.json';
@@ -37,6 +43,16 @@ describe('Post API test', () => {
     expect(Title).toBeInTheDocument();
     loadingDiv = await waitFor(() => screen.queryByTestId('loading'));
     expect(loadingDiv).not.toBeInTheDocument();
+    let Toast = await waitFor(() => screen.queryByText('Posts loaded!'));
+    expect(Toast).toBeInTheDocument();
+    const toastButton = await waitFor(() =>
+      screen.queryByRole('button', {
+        name: /Close/i,
+      })
+    );
+    fireEvent.click(toastButton);
+    Toast = await waitFor(() => screen.queryByText('Posts loaded!'));
+    expect(Toast).not.toBeInTheDocument();
   });
 
   it('gets an error from the API', async () => {
