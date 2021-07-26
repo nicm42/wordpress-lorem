@@ -13,7 +13,7 @@ const Image = ({ photo, index }: IPhotoProps) => {
   }
 
   return (
-    <figure className={`figure text-center ${position}`}>
+    <figure className={`figure text-center ${position} px-3`}>
       <img
         className="figure-img img-fluid"
         src={photo.link}
