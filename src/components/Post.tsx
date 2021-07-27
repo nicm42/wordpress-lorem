@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Accordion from 'react-bootstrap/Accordion';
 import Image from './Image';
 import Loading from './Loading';
-import dummyImage from '../dummy-image.json'; // uncomment to use dummy image json rather than querying API
+import getImages from '../utils/getImages';
 
 interface IPostProps {
   post: any;
@@ -26,13 +26,14 @@ const Post = ({ post, index }: IPostProps) => {
     userLink: '',
   });
 
-  const fetchData = async (type: string) => {
+  /* const fetchData = async (type: string) => {
     setStatus('loading');
     try {
-      //const response = await fetch('/' + type);
-      //const data = await response.json();
+      const response = await axios.get('/' + type);
+      //console.log(response);
+      const data = await response.data;
       //console.log(data[0]);
-      const data = dummyImage;
+      //const data = dummyImage;
       const link = data[0].urls.thumb;
       const alt = data[0].alt_description;
       const userName = data[0].user.name;
@@ -45,21 +46,32 @@ const Post = ({ post, index }: IPostProps) => {
       console.log(error);
       setStatus('error');
     }
+  }; */
+
+  const getData = async (type: string) => {
+    setStatus('loading');
+    const response = await getImages(type);
+    if (response === 'error' || !response) {
+      setStatus('error');
+    } else {
+      setPhoto(response);
+      setStatus('loaded');
+    }
   };
 
   useEffect(() => {
     switch (post.title) {
       case 'Monty Python and the Holy Grail Fillerama':
-        fetchData('knight');
+        getData('knight');
         break;
       case 'Doctor Who Fillerama':
-        fetchData('space');
+        getData('space');
         break;
       case 'Cat Ipsum':
-        fetchData('cat');
+        getData('cat');
         break;
       case 'Cupcake Ipsum':
-        fetchData('cake');
+        getData('cake');
         break;
       default:
         return;

@@ -4,20 +4,21 @@ import ToastContainer from 'react-bootstrap/ToastContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './components/Post';
 import Loading from './components/Loading';
+import getPosts from './utils/getPosts';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState('loading');
   const [show, setShow] = useState(false); // For the Toast hiding
 
-  const fetchData = async () => {
+  /* const fetchData = async () => {
     const link =
       'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true';
     // Uncomment below to test errors
     //const link = 'http://httpstat.us/404';
     try {
       const response = await fetch(link);
-
+      console.log(response);
       const data = await response.json();
       setPosts(data.posts);
       setStatus('loaded');
@@ -27,10 +28,21 @@ const App = () => {
       console.log(error);
       setStatus('error');
     }
-  };
+  }; */
 
   useEffect(() => {
-    fetchData();
+    const getData = async () => {
+      const response = await getPosts();
+      //console.log(response);
+      if (response === 'error' || !response) {
+        setStatus('error');
+      } else {
+        setPosts(response.data.posts);
+        setStatus('loaded');
+        setShow(true);
+      }
+    };
+    getData();
   }, []);
 
   return (
@@ -41,7 +53,7 @@ const App = () => {
         {status === 'error' ? "Couldn't fetch posts" : ''}
       </p>
 
-      {posts.map((post: any[], index) => (
+      {posts.map((post: any, index) => (
         <Post post={post} key={post.ID} index={index} />
       ))}
       {status === 'loaded' ? (
