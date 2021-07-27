@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "nodemon src/start.ts",
+    "dev": "nodemon src/server/server.ts",
     "test:coverage": "npm test -- --coverage --watchAll=false",
     "cypress:start:app": "BROWSER=none react-scripts -r @cypress/instrument-cra start",
     "cypress:start:wait": "start-server-and-test cypress:start:app http://localhost:3000",
