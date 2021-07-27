@@ -31,9 +31,9 @@ const Post = ({ post, index }: IPostProps) => {
     setStatus('loading');
     try {
       const response = await axios.get('/' + type);
-      console.log(response);
+      //console.log(response);
       const data = await response.data;
-      console.log(data[0]);
+      //console.log(data[0]);
       //const data = dummyImage;
       const link = data[0].urls.thumb;
       const alt = data[0].alt_description;

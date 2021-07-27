@@ -8,13 +8,17 @@ import testPost4 from '../dummyData/test-post4.json';
 import testImage from '../dummyData/test-image.json';
 
 describe('Post test', () => {
-  it('has the title and content', () => {
+  it('has the title and content', async () => {
     render(<BlogPost post={testPost1} index={1} />);
-    const Title = screen.getByText('Monty Python and the Holy Grail Fillerama');
+    const Title = await waitFor(() =>
+      screen.getByText('Monty Python and the Holy Grail Fillerama')
+    );
     expect(Title).toBeInTheDocument();
-    const Content = screen.getByText(
-      'No, no, no! Yes, yes. A bit. But she’s got a wart. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. We shall say ‘Ni’ again to you, if you do not appease us.',
-      { exact: false }
+    const Content = await waitFor(() =>
+      screen.getByText(
+        'No, no, no! Yes, yes. A bit. But she’s got a wart. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. We shall say ‘Ni’ again to you, if you do not appease us.',
+        { exact: false }
+      )
     );
     expect(Content).toBeInTheDocument();
   });

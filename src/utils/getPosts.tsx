@@ -7,7 +7,7 @@ const getPosts = async () => {
   //const link = 'http://httpstat.us/404';
   try {
     const response = await axios.get(link);
-    console.log(response);
+    //console.log(response);
     return response;
   } catch (error) {
     console.log(error);
