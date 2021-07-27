@@ -10,9 +10,11 @@ import App from './App';
 import testPost from './dummyData/dummy-posts2.json';
 
 describe('App tests', () => {
-  it('renders without crashing', () => {
+  it('renders without crashing', async () => {
     render(<App />);
-    const header = screen.getByText('Alternative Ipsum Posts');
+    const header = await waitFor(() =>
+      screen.getByText('Alternative Ipsum Posts')
+    );
     expect(header).toBeInTheDocument();
   });
 });

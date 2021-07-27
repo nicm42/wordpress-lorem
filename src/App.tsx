@@ -33,8 +33,8 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await getPosts();
-      console.log(response);
-      if (response === 'error') {
+      //console.log(response);
+      if (response === 'error' || !response) {
         setStatus('error');
       } else {
         setPosts(response.data.posts);
