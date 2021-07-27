@@ -1,11 +1,11 @@
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import BlogPost from './Post';
-import testPost1 from '../test-post1.json';
-import testPost2 from '../test-post2.json';
-import testPost3 from '../test-post3.json';
-import testPost4 from '../test-post4.json';
-import testImage from '../test-image.json';
+import testPost1 from '../dummyData/test-post1.json';
+import testPost2 from '../dummyData/test-post2.json';
+import testPost3 from '../dummyData/test-post3.json';
+import testPost4 from '../dummyData/test-post4.json';
+import testImage from '../dummyData/test-image.json';
 
 describe('Post test', () => {
   it('has the title and content', () => {

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Accordion from 'react-bootstrap/Accordion';
 import Image from './Image';
 import Loading from './Loading';
-import dummyImage from '../dummy-image.json'; // uncomment to use dummy image json rather than querying API
+import dummyImage from '../dummyData/dummy-image.json'; // uncomment to use dummy image json rather than querying API
 
 interface IPostProps {
   post: any;
