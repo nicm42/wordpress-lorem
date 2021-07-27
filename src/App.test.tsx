@@ -7,7 +7,7 @@ import {
 } from '@testing-library/react';
 import axios from 'axios';
 import App from './App';
-import testPost from './dummy-posts2.json';
+import testPost from './dummyData/dummy-posts2.json';
 
 describe('App tests', () => {
   it('renders without crashing', () => {
@@ -21,9 +21,6 @@ describe('Post API test', () => {
   jest.mock('axios');
   const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-  /* afterEach(() => {
-    jest.clearAllMocks();
-  }); */
   beforeEach(() => jest.resetAllMocks());
   afterEach(cleanup);
 
