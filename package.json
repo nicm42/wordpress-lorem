@@ -42,6 +42,12 @@
     "start:ci": "npm run cypress:start:wait --headless -- \"cypress run\""
   },
   "proxy": "http://localhost:8000",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/index.tsx"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
