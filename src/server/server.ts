@@ -1,7 +1,8 @@
 import getImage from './getImage';
 
 import express, { Request, Response } from 'express';
-//require('dotenv').config();
+//import axios from 'axios';
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -39,35 +40,36 @@ app.get('/cake', async (req: Request, res: Response) => {
 });
 
 /* app.get('/knight', async (req: Request, res: Response) => {
-  const photo = await fetch(
+  const photo = await axios.get(
     `${link}/photos/random?client_id=${key}&count=1&query=knight`
   );
-  const photoResponse = await photo.json();
+  const photoResponse = await photo;
+  console.log(photoResponse);
   res.send(photoResponse);
 });
 
 app.get('/space', async (req: Request, res: Response) => {
-  const photo = await fetch(
+  const photo = await axios.get(
     `${link}/photos/random?client_id=${key}&count=1&query=space`
   );
-  const photoResponse = await photo.json();
+  const photoResponse = await photo;
   res.send(photoResponse);
 });
 
 app.get('/cat', async (req: Request, res: Response) => {
-  const photo = await fetch(
+  const photo = await axios.get(
     `${link}/photos/random?client_id=${key}&count=1&query=cat`
   );
-  const photoResponse = await photo.json();
+  const photoResponse = await photo;
   res.send(photoResponse);
 });
 
 app.get('/cake', async (req: Request, res: Response) => {
-  const photo = await fetch(
+  const photo = await axios.get(
     `${link}/photos/random?client_id=${key}&count=1&query=cake`
   );
-  const photoResponse = await photo.json();
+  const photoResponse = await photo;
   res.send(photoResponse);
-});
- */
-//module.exports = app;
+}); */
+
+module.exports = app;
