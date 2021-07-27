@@ -1,4 +1,3 @@
-import { Request, Response } from 'express';
 import axios from 'axios';
 
 const app = require('./server');
@@ -11,22 +10,22 @@ describe('routes work', () => {
   beforeEach(() => jest.resetAllMocks());
 
   it('tests knight route works', async () => {
-    mockedAxios.get.mockResolvedValueOnce('knight photo');
+    mockedAxios.get.mockResolvedValueOnce({ data: 'knight photo' });
     return request(app).get('/knight').expect('knight photo').expect(200);
   });
 
   it('tests space route works', async () => {
-    mockedAxios.get.mockResolvedValueOnce('space photo');
+    mockedAxios.get.mockResolvedValueOnce({ data: 'space photo' });
     return request(app).get('/space').expect('space photo').expect(200);
   });
 
   it('tests cat route works', async () => {
-    mockedAxios.get.mockResolvedValueOnce('cat photo');
+    mockedAxios.get.mockResolvedValueOnce({ data: 'cat photo' });
     return request(app).get('/cat').expect('cat photo').expect(200);
   });
 
   it('tests cake route works', async () => {
-    mockedAxios.get.mockResolvedValueOnce('cake photo');
+    mockedAxios.get.mockResolvedValueOnce({ data: 'cake photo' });
     return request(app).get('/cake').expect('cake photo').expect(200);
   });
 });
