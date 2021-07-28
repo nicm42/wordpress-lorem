@@ -1,4 +1,4 @@
-# WordPress Lorem
+# Alternative Ipsum Posts
 
 > WordPress.com posts using the API
 
