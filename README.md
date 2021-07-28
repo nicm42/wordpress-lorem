@@ -47,7 +47,7 @@ Shows WordPress.com posts in a Bootstrap Accordion, along with a random related 
 
 ## Setup
 
-To view this project visit the [demo](http://http://wordpress-lorem.nicm42.co.uk/) or download the files, open a terminal in that folder and install locally using npm:
+To view this project visit the [demo](http://wordpress-lorem.nicm42.co.uk/) or download the files, open a terminal in that folder and install locally using npm:
 
 ```
 npm install
