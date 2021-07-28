@@ -1,7 +1,6 @@
 import express, { Request, Response } from 'express';
 import axios from 'axios';
-require('dotenv').config();
-
+const path = require('path');
 require('dotenv').config();
 
 const link = 'https://api.unsplash.com';
@@ -10,9 +9,10 @@ const key = process.env.REACT_APP_API_KEY;
 const app = express();
 const port = process.env.PORT || 8000;
 
-module.exports = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
-});
+console.log(__dirname);
+
+// Serve the built files from Node
+app.use(express.static(path.join(__dirname, '..', '..', 'build')));
 
 app.get('/knight', async (req: Request, res: Response) => {
   const photo = await axios.get(
@@ -48,4 +48,13 @@ app.get('/cake', async (req: Request, res: Response) => {
   const photoResponse = await photo;
   //console.log(photoResponse);
   res.send(photoResponse.data);
+});
+
+// Any other request goes to index
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, '..', '..', 'build', 'index.html'));
+});
+
+module.exports = app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`);
 });
