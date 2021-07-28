@@ -26,31 +26,10 @@ const Post = ({ post, index }: IPostProps) => {
     userLink: '',
   });
 
-  /* const fetchData = async (type: string) => {
-    setStatus('loading');
-    try {
-      const response = await axios.get('/' + type);
-      //console.log(response);
-      const data = await response.data;
-      //console.log(data[0]);
-      //const data = dummyImage;
-      const link = data[0].urls.thumb;
-      const alt = data[0].alt_description;
-      const userName = data[0].user.name;
-      const userLink =
-        data[0].user.links.html +
-        '?utm_source=wordpress_lorem&utm_medium=referral';
-      setStatus('loaded');
-      setPhoto({ link, alt, userName, userLink });
-    } catch (error) {
-      console.log(error);
-      setStatus('error');
-    }
-  }; */
-
   const getData = async (type: string) => {
     setStatus('loading');
     const response = await getImages(type);
+    //console.log(response);
     if (response === 'error' || !response) {
       setStatus('error');
     } else {

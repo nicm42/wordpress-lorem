@@ -6,6 +6,7 @@ const getImages = async (type: string) => {
     const response = await axios.get('/' + type);
     //console.log(response);
     const data = await response.data;
+    //console.log(response.data);
     //console.log(data[0]);
     //const data = dummyImage;
     const link = data[0].urls.thumb;

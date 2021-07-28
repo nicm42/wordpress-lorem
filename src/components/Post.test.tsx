@@ -1,4 +1,5 @@
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import axios from 'axios';
 import BlogPost from './Post';
 import testPost1 from '../dummyData/test-post1.json';
@@ -82,5 +83,16 @@ describe('Image API test', () => {
     );
     const image = await waitFor(() => screen.queryByRole('img'));
     expect(image).not.toBeInTheDocument();
+  });
+});
+
+describe('Snapshot test', () => {
+  const getImages = jest.fn();
+
+  it('matches post snapshot', async () => {
+    const tree = renderer
+      .create(<BlogPost post={testPost1} index={0} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
