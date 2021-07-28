@@ -11,29 +11,10 @@ const App = () => {
   const [status, setStatus] = useState('loading');
   const [show, setShow] = useState(false); // For the Toast hiding
 
-  /* const fetchData = async () => {
-    const link =
-      'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true';
-    // Uncomment below to test errors
-    //const link = 'http://httpstat.us/404';
-    try {
-      const response = await fetch(link);
-      console.log(response);
-      const data = await response.json();
-      setPosts(data.posts);
-      setStatus('loaded');
-      setShow(true);
-      console.log(data.posts);
-    } catch (error) {
-      console.log(error);
-      setStatus('error');
-    }
-  }; */
-
   useEffect(() => {
     const getData = async () => {
       const response = await getPosts();
-      console.log(response);
+      //console.log(response);
       if (
         response === 'error' ||
         response.data === 'error' ||
