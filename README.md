@@ -11,7 +11,8 @@
 - [Setup](#setup)
 - [Features](#features)
 - [Status](#status)
-- [Contact](#contact)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
 ## General info
 
@@ -66,7 +67,13 @@ npm start
 
 ## Status
 
-Project is: finished\_
+Project is: _finished_
+
+## Inspiration
+Lorem Ipsum text used in the posts is from:
+* [Fillerama](http://fillerama.io/)
+* [Cat Ipsum](http://www.catipsum.com/index.php)
+* [Cupcake Ipsum](http://www.cupcakeipsum.com/)
 
 ## Contact
 
