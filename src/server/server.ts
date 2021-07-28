@@ -19,7 +19,7 @@ app.get('/knight', async (req: Request, res: Response) => {
     `${link}/photos/random?client_id=${key}&count=1&query=knight`
   );
   const photoResponse = await photo;
-  console.log(photoResponse);
+  //console.log(photoResponse);
   res.send(photoResponse.data);
 });
 
@@ -49,6 +49,3 @@ app.get('/cake', async (req: Request, res: Response) => {
   //console.log(photoResponse);
   res.send(photoResponse.data);
 });
-
-//module.exports = app;
-//export {};
