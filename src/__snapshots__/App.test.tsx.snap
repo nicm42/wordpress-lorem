@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test renders the app correctly 1`] = `
+<main
+  className="p-3"
+>
+  <h1
+    className="text-center pt-2 pb-2"
+  >
+    Alternative Ipsum Posts
+  </h1>
+  <div
+    className="text-center"
+    data-testid="loading"
+  >
+    <div
+      className="spinner-border text-primary"
+      role="status"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Loading...
+      </span>
+    </div>
+  </div>
+  <p
+    className="text-danger text-center"
+  >
+    
+  </p>
+  
+</main>
+`;

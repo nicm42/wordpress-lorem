@@ -17,8 +17,8 @@ const App = () => {
       //console.log(response);
       if (
         response === 'error' ||
-        response.data === 'error' ||
-        !response.data ||
+        (response && response.data === 'error') ||
+        (response && !response.data) ||
         !response
       ) {
         setStatus('error');

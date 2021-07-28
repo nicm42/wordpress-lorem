@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests renders the images correctly 1`] = `
+<figure
+  className="figure text-center float-md-end px-3"
+>
+  <img
+    alt="clear glass cake with white and red strawberries"
+    className="figure-img img-fluid"
+    loading="lazy"
+    src="https://images.unsplash.com/photo-1571622840901-92ae138bd36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNDc4NTd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjY3NjA2NTU&ixlib=rb-1.2.1&q=80&w=200"
+  />
+  <figcaption
+    className="figure-caption"
+  >
+    Photo by 
+    <a
+      href="https://unsplash.com/@jjy95?utm_source=wordpress_lorem&utm_medium=referral"
+    >
+      jjy95
+    </a>
+     on
+     
+    <a
+      className="link-primary"
+      href="https://unsplash.com?utm_source=wordpress_lorem&utm_medium=referral"
+    >
+      Unsplash
+    </a>
+  </figcaption>
+</figure>
+`;

@@ -5,6 +5,7 @@ import {
   waitFor,
   fireEvent,
 } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import axios from 'axios';
 import App from './App';
 import testPost from './dummyData/dummy-posts2.json';
@@ -65,5 +66,14 @@ describe('Post API test', () => {
     );
     const Error = await waitFor(() => screen.getByText("Couldn't fetch posts"));
     expect(Error).toBeInTheDocument();
+  });
+});
+
+describe('Snapshot test', () => {
+  const getPosts = jest.fn();
+
+  it('matches app snapshot', async () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

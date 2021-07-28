@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests renders loading spinner correctly 1`] = `
+<div
+  className="text-center"
+  data-testid="loading"
+>
+  <div
+    className="spinner-border text-primary"
+    role="status"
+  >
+    <span
+      className="visually-hidden"
+    >
+      Loading...
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Snapshot tests renders the app correctly 1`] = `
+<main
+  className="p-3"
+>
+  <h1
+    className="text-center pt-2 pb-2"
+  >
+    Alternative Ipsum Posts
+  </h1>
+  <div
+    className="text-center"
+    data-testid="loading"
+  >
+    <div
+      className="spinner-border text-primary"
+      role="status"
+    >
+      <span
+        className="visually-hidden"
+      >
+        Loading...
+      </span>
+    </div>
+  </div>
+  <p
+    className="text-danger text-center"
+  >
+    
+  </p>
+  
+</main>
+`;
+
+exports[`Snapshot tests renders the images correctly 1`] = `
+<figure
+  className="figure text-center float-md-end px-3"
+>
+  <img
+    alt="clear glass cake with white and red strawberries"
+    className="figure-img img-fluid"
+    loading="lazy"
+    src="https://images.unsplash.com/photo-1571622840901-92ae138bd36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyNDc4NTd8MHwxfHJhbmRvbXx8fHx8fHx8fDE2MjY3NjA2NTU&ixlib=rb-1.2.1&q=80&w=200"
+  />
+  <figcaption
+    className="figure-caption"
+  >
+    Photo by 
+    <a
+      href="https://unsplash.com/@jjy95?utm_source=wordpress_lorem&utm_medium=referral"
+    >
+      jjy95
+    </a>
+     on
+     
+    <a
+      className="link-primary"
+      href="https://unsplash.com?utm_source=wordpress_lorem&utm_medium=referral"
+    >
+      Unsplash
+    </a>
+  </figcaption>
+</figure>
+`;
+
+exports[`Snapshot tests renders the posts correctly 1`] = `
+<div
+  className="p-1 container-sm accordion"
+>
+  <div
+    className="accordion-item"
+  >
+    <h2
+      className="accordion-header"
+    >
+      <button
+        aria-expanded={false}
+        className="accordion-button collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        Monty Python and the Holy Grail Fillerama
+      </button>
+    </h2>
+    <div
+      aria-expanded={null}
+      className="accordion-collapse collapse"
+    >
+      <div
+        className="col-sm-9 accordion-body"
+      >
+        
+        
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "
+<h1>The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land.</h1>
+
+
+
+<p>No, no, no! Yes, yes. A bit. But she&#8217;s got a wart. Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods. We shall say &#8216;Ni&#8217; again to you, if you do not appease us.</p>
+
+
+
+<p>It&#8217;s only a model. And the hat. She&#8217;s a witch! Well, she turned me into a newt. We found them. Well, she turned me into a newt. <strong>Oh!</strong> <em>Come and see the violence inherent in the system!</em> Help, help, I&#8217;m being repressed!</p>
+
+
+
+<h2>On second thoughts, let&#8217;s not go there. It is a silly place.</h2>
+
+
+
+<p>Ah, now we see the violence inherent in the system! A newt? I am your king. Shut up! Will you shut up?! I don&#8217;t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!</p>
+
+
+
+<ol><li>We want a shrubbery!!</li><li>I don&#8217;t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!</li><li>Bloody Peasant!</li></ol>
+
+
+
+<h3>The Knights Who Say Ni demand a sacrifice!</h3>
+
+
+
+<p>Well, she turned me into a newt. The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land. You can&#8217;t expect to wield supreme power just &#8217;cause some watery tart threw a sword at you!</p>
+
+
+
+<ul><li>Be quiet!</li><li>Well, she turned me into a newt.</li><li>Who&#8217;s that then?</li></ul>
+
+
+
+<p>I don&#8217;t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time! We shall say &#8216;Ni&#8217; again to you, if you do not appease us.</p>
+
+
+
+<p>I dunno. Must be a king. Well, how&#8217;d you become king, then? It&#8217;s only a model. Bring her forward!</p>
+
+
+
+<p>Oh, ow! Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.</p>
+
+
+
+<p>You can&#8217;t expect to wield supreme power just &#8217;cause some watery tart threw a sword at you! We want a shrubbery!! We shall say &#8216;Ni&#8217; again to you, if you do not appease us. The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land.</p>
+
+
+
+<p>Did you dress her up like this? Well, how&#8217;d you become king, then? Bloody Peasant! No, no, no! Yes, yes. A bit. But she&#8217;s got a wart. Well, how&#8217;d you become king, then?</p>
+
+
+
+<p>The Lady of the Lake, her arm clad in the purest shimmering samite, held aloft Excalibur from the bosom of the water, signifying by divine providence that I, Arthur, was to carry Excalibur. That is why I am your king. And this isn&#8217;t my nose. This is a false one.</p>
+
+
+
+<p>Now, look here, my good man. The Knights Who Say Ni demand a sacrifice! I don&#8217;t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!</p>
+
+
+
+<p>I don&#8217;t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time! Look, my liege!</p>
+
+
+
+<p>He hasn&#8217;t got shit all over him. She looks like one. Shh! Knights, I bid you welcome to your new home. Let us ride to Camelot! Where&#8217;d you get the coconuts? He hasn&#8217;t got shit all over him. Be quiet!</p>
+
+
+
+<p>Bloody Peasant! We shall say &#8216;Ni&#8217; again to you, if you do not appease us. Burn her anyway! We found them.</p>
+
+
+
+<p>Well, what do you want? Where&#8217;d you get the coconuts? Now, look here, my good man. On second thoughts, let&#8217;s not go there. It is a silly place.</p>
+",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import Image from './Image';
 import testImage from '../dummyData/test-image2.json';
 
@@ -38,5 +39,14 @@ describe('Image test', () => {
     expect(linkText1).toBeInTheDocument();
     const linkText2 = screen.getByText('Unsplash');
     expect(linkText2).toBeInTheDocument();
+  });
+});
+
+describe('Snapshot tests', () => {
+  it('matches image snapshot', () => {
+    const tree = renderer
+      .create(<Image photo={testImage} index={0} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
