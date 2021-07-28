@@ -16,6 +16,10 @@ describe('App tests', () => {
     }).as('getImages1');
     cy.wait('@getPosts');
     cy.findAllByText('Alternative Ipsum Posts').should('exist');
-    cy.findByText('Success').should('exist');
+    cy.findByText('Posts loaded!').should('exist');
+    cy.findByRole('button', {
+      name: /Close/i,
+    }).click();
+    cy.findByText('Posts loaded!').should('not.exist');
   });
 });
