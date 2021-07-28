@@ -33,10 +33,16 @@ const App = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await getPosts();
-      //console.log(response);
-      if (response === 'error' || !response) {
+      console.log(response);
+      if (
+        response === 'error' ||
+        response.data === 'error' ||
+        !response.data ||
+        !response
+      ) {
         setStatus('error');
       } else {
+        //console.log(response.data);
         setPosts(response.data.posts);
         setStatus('loaded');
         setShow(true);

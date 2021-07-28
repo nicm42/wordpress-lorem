@@ -18,7 +18,7 @@ describe('Post tests', () => {
     cy.findByText('This is a test post').should('exist');
   });
 
-  xit('has an error', () => {
+  it('has an error', () => {
     cy.intercept(
       'https://public-api.wordpress.com/rest/v1.1/sites/nictesting935058505.wordpress.com/posts/?pretty=true',
       'error'
