@@ -1,3 +1,6 @@
+/// <reference types="Cypress" />
+/// <reference types="@testing-library/cypress" />
+
 describe('App tests', () => {
   beforeEach(() => {
     cy.visit(Cypress.config('baseUrl'));
