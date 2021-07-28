@@ -13,7 +13,7 @@ describe('Post tests', () => {
     ).as('getPosts');
     cy.intercept('GET', '/knight', {
       fixture: 'test-image.json',
-    }).as('getImages1');
+    }).as('getImages');
     cy.wait('@getPosts');
     cy.findByText('This is a test post').should('exist');
   });
