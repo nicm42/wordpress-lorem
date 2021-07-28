@@ -15,11 +15,11 @@
 
 ## General info
 
-Having learnt that WordPress has an API I wanted to try it out. I also wanted to try Bootstrap in React, so I put those together. I wanted to add photos to the posts, but rather than finding one and adding it to the post directly, I used the Unsplash API. That allowed me to get a random photo that matched the subject, and use Express to hide my API key on the server. With Bootstrap I aimed not to write any CSS, which I achieved. This is not in any way how you'd use these in the real world, but useful to learn what is possible.
+Having learnt that WordPress has an API I wanted to try it out. I also wanted to try Bootstrap in React, so I put those together. I wanted to add photos to the posts, but rather than finding one and adding it to the post directly, I used the Unsplash API. That allowed me to get a random photo that matched the subject, and use Express to hide my API key on the server. With Bootstrap I aimed not to write any CSS, which I achieved. This is not in any way how you'd use these in the real world, but useful to understand what is possible.
 
 ## Screenshots
 
-<!--![Screenshot](screenshot.png)-->
+![Screenshot](screenshot.png)
 
 ## Technologies
 
@@ -47,7 +47,7 @@ Shows WordPress.com posts in a Bootstrap Accordion, along with a random related 
 
 ## Setup
 
-To view this project visit the [demo](TBC) or download the files, open a terminal in that folder and install locally using npm:
+To view this project visit the [demo](http://http://wordpress-lorem.nicm42.co.uk/) or download the files, open a terminal in that folder and install locally using npm:
 
 ```
 npm install
@@ -66,7 +66,7 @@ npm start
 
 ## Status
 
-Project is: _in progress_
+Project is: finished\_
 
 ## Contact
 
