@@ -48,7 +48,9 @@ Shows WordPress.com posts in a Bootstrap Accordion, along with a random related 
 
 ## Setup
 
-To view this project visit the [demo](https://wordpress-lorem.onrender.com/) or download the files, open a terminal in that folder and install locally using npm:
+To view this project visit the [demo](https://wordpress-lorem.onrender.com/). Note this is hosted on a free tier of Render so will take 30 seconds to start up.
+
+Or download the files, open a terminal in that folder and install locally using npm:
 
 ```
 npm install
